@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Muy-Feliz",
-    "slug": "Muy-Feliz",
+    "slug": "muy-feliz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0f7d7ea2-8f10-4019-be14-30e347581d41"
+      }
+    },
+    "owner": "mehroosali"
   }
 }
