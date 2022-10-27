@@ -25,6 +25,7 @@ For committing changes, <br>
 <li> git commit -m "commit message" </li>
 <li> git push -u Muy-Feliz som <br>
 </ul>
+
 ### Setting up VS Code 
 Install VS code extensions for React Native development. There are many options. Install as per your needs/preferences. <br>
 Some common ones are https://blog.bitsrc.io/vs-code-extensions-you-should-use-as-a-react-developer-83fb1fc21d1e
@@ -46,6 +47,11 @@ If for some reason Android Studio does not work, you can run react native emulat
 ### Setting up build and deployment (Optional)
 This setup is done in my laptop using Expo CLI and EAS to build final APK file for testing in any android phone. You only need to worry about successfully running and testing your changes in Android Studio and merging the working code in this repository. I will take of creating the final App to be installed in our phones for demo. 
 
+### Files and Folder Structure
+App.js - main entry file with global app navigation setup. <br>
+pages - contains files for each screen which we will design. <br>
+components - Reusable react native components which we will design or copy from internet.<br>
+assets/images - any image which we will use.
 ### References
 https://reactnative.dev/docs/components-and-apis <br>
 https://builderx.io/ <br>
