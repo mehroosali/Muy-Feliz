@@ -18,6 +18,12 @@ Open any terminal/command line and type:
 <li> npm i </li>
 <li> git checkout som </li>
 </ul>
+For committing changes, <br>
+<ul>
+<li> git add . </li>
+<li> git commit -m "commit message" </li>
+<li> git push -u Muy-Feliz som </li>
+</ul>
 
 ### Setting up VS Code 
 Install VS code extensions for React Native development. There are many options. Install as per your needs/preferences. <br>
