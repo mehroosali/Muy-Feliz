@@ -20,11 +20,11 @@ Open any terminal/command line and type:
 </ul>
 For committing changes, <br>
 <ul>
+<li> git pull Muy-Feliz main </li>
 <li> git add . </li>
 <li> git commit -m "commit message" </li>
-<li> git push -u Muy-Feliz som </li>
+<li> git push -u Muy-Feliz som <br>
 </ul>
-
 ### Setting up VS Code 
 Install VS code extensions for React Native development. There are many options. Install as per your needs/preferences. <br>
 Some common ones are https://blog.bitsrc.io/vs-code-extensions-you-should-use-as-a-react-developer-83fb1fc21d1e
