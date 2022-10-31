@@ -1,17 +1,12 @@
+import 'react-native-gesture-handler';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LaunchScreen from './pages/launch'; 
-import HomeScreen from './pages/home'; 
-
-const {Navigator, Screen} = createNativeStackNavigator();
+import Drawer from './routes/drawer';
 
 function App() {
   return (
     <NavigationContainer>
-      <Navigator screenOptions={{ headerShown: false }} initialRouteName='Launch'>
-        <Screen name="Launch" component={LaunchScreen} />
-        <Screen name="Home" component={HomeScreen} />
-      </Navigator>
+      <Drawer />
     </NavigationContainer>
   );
 }

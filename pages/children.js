@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 
-function HomeScreen(props) {
+function ChildrenScreen(props) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text>Children Screen</Text>
     </View>
   );
 }
 
-export default HomeScreen;
+export default ChildrenScreen;

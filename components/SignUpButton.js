@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 function SignUpButton(props) {
   return (
       <TouchableOpacity style={[styles.container, props.style]}
-      onPress = {() => props.navigation.navigate('Home')} >
+      onPress = {() => props.navigation.navigate('Signup')} >
       <Text style={styles.signup}>SIGNUP</Text>
     </TouchableOpacity>
   );

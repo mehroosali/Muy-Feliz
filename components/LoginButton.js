@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
+
 function LoginButton(props) {
   return (
     <TouchableOpacity style={[styles.container, props.style]}
-    onPress = {() => props.navigation.navigate('Home')}
+    onPress = {() => props.navigation.navigate('Login')}
     >
       <Text style={styles.login}>LOGIN</Text>
     </TouchableOpacity>
