@@ -7,11 +7,11 @@ function LaunchScreen(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.muyFeliz}>Muy Feliz</Text>
+      <Text style={styles.loremIpsum}>Your hobby and baby manager!</Text>
       <LoginButton
         style = {styles.loginButton}
         navigation = {props.navigation}
       ></LoginButton>
-      <Text style={styles.loremIpsum}>Your personal baby tacker!</Text>
       <SignUpButton
         style = {styles.signupButton}
         navigation = {props.navigation}
@@ -30,24 +30,23 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     fontSize: 40,
     marginTop: 213,
-    marginLeft: 102
+    textAlign: 'center'
   },
   loginButton: {
     height: 36,
     width: 128,
-    marginTop: 348,
+    marginTop: 200,
     marginLeft: 121
   },
   loremIpsum: {
     fontFamily: "roboto-regular",
     color: "rgba(255,255,255,1)",
-    marginTop: -379,
-    marginLeft: 102
+    textAlign: 'center'
   },
   signupButton: {
     height: 36,
     width: 128,
-    marginTop: 385,
+    marginTop: 20,
     marginLeft: 121
   }
 });

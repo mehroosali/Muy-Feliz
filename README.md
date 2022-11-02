@@ -58,4 +58,7 @@ https://builderx.io/ <br>
 https://docs.expo.dev/build/eas-json/ <br>
 https://docs.expo.dev/build-reference/apk/ <br>
 https://expo.dev/ <br>
-https://www.waldo.com/blog/react-native-project-structure 
+https://www.waldo.com/blog/react-native-project-structure <br>
+https://github.com/wix/react-native-calendars <br>
+https://github.com/wix/react-native-calendars/blob/master/example/src/screens/agendaScreen.tsx <br>
+https://gist.github.com/jonasgroendahl/f5e938cdf0a77c2e1509ded22630ba7d <br>

@@ -9,11 +9,15 @@ const { Navigator, Screen } = createDrawerNavigator();
 
 function Drawer() {
   return (
-      <Navigator initialRouteName='Sign Out'>
+    <Navigator
+      initialRouteName='Sign Out'
+       screenOptions={{
+         unmountOnBlur: true
+    }} >
       <Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Home' }}
+        options={{title: 'Home'}}
       />
       <Screen
         name="Children"
