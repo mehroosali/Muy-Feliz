@@ -1,63 +1,36 @@
 export const INITIAL_STATE = {
+    current_user: {},
+    users: [{
+        'username': 'mehroosali',
+        'name': 'Mehroos Ali',
+        'email': 'mehroosali@gmail.com',
+        'password': '12345',
+        'image': 'mehroos'
+    },
+    {
+        'username': 'gracekozuch',
+        'name': 'Grace Kozuch',
+        'email': 'grace.kozuch@gmail.com',
+        'password': '12345',
+        'image': 'grace'
+    }],
     calender_events: [{
-            date: '2022-11-02',
+            id:1,
+            date: '2022-11-06',
             task: 'Workout',
             time: '2:30 PM',
-            task_label: 'P'
+            task_label: 'P',
+            user: 'mehroosali',
+            completed:false
         },
         {
-            date: '2022-11-02',
+            id: 2,
+            date: '2022-11-06',
             task: 'Feed the baby',
             time: '5:30 AM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-03',
-            task: 'Doctor Appointment',
-            time: '12:00 PM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-03',
-            task: 'Bottle time',
-            time: '6:00 PM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-04',
-            task: 'Hiking Event',
-            time: '8:30 AM',
-            task_label: 'P'
-        },
-        {
-            date: '2022-11-05',
-            task: 'Bottle time',
-            time: '6:00 PM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-06',
-            task: 'Morning Jog',
-            time: '7:30 AM',
-            task_label: 'P'
-        },
-        {
-            date: '2022-11-06',
-            task: 'Baby Sleep',
-            time: '7:30 PM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-07',
-            task: 'Baby Nursing',
-            time: '6:00 AM',
-            task_label: 'C'
-        },
-        {
-            date: '2022-11-08',
-            task: 'Dance sessions',
-            time: '6:00 PM',
-            task_label: 'P'
+            task_label: 'C',
+            user: 'mehroosali',
+            completed: false
         }
     ],
     hobbies: [{
@@ -195,5 +168,15 @@ export const INITIAL_STATE = {
                 }
             ]
         }
-    ]
+    ],
+    rewards: [{
+        id: 1,
+        title: '50% Flash Sale Copouns',
+        brand: '',
+        description: '',
+        promo_code:'',
+        expiry: '',
+        claimed:false
+    }],
+    rewards_count: 0
 }

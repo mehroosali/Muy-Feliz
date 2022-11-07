@@ -1,34 +1,33 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {View, TouchableOpacity, Text, Alert } from 'react-native';
+import React, {useState} from 'react';
+import {View, TouchableOpacity, Text, Alert, StyleSheet } from 'react-native';
 import {Agenda} from 'react-native-calendars';
-import { Card, Avatar, Button } from 'react-native-paper';
+import { Card, Avatar } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import { delete_event } from '../redux/actions';
-
-const timeToString = (time) => {
-  const date = new Date(time);
-  return date.toISOString().split('T')[0];
-};
+import { delete_event, complete_event, increment_rewards_count } from '../redux/actions';
+import { Store } from '../redux/store';
 
 function HomeScreen(props) {
   const [items, setItems] = useState({});
-   const [value, setValue] = useState(0);
   const { calender_events } = useSelector(state => state.calenderReducer);
+  const { rewards_count, rewards } = useSelector(state => state.rewardsReducer);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-  if (items) setValue(value+1)
-  }, [items])
   
   const handleOnPress = (item) => {
-  Alert.alert('Mark as Complete', 'This will delete the item of your schedule', [
+    Alert.alert('Mark as Complete', 'Complete task to claim rewards.', [
+      {
+        text: "Complete",
+      onPress: () => {
+        dispatch(complete_event(item.id));
+        dispatch(increment_rewards_count(rewards_count + 1));
+        Alert.alert('Rewards Unlocked', 'Check rewards page for more details.');
+        loadAndSet(Store.getState().calenderReducer.calender_events);
+        },
+      },
         {
-        text: "OK",
+        text: "Delete",
       onPress: () => {
         dispatch(delete_event(item));
-        //BUG FIX: get changed state from store
-
-        loadItems();
+        loadAndSet(Store.getState().calenderReducer.calender_events);
         },
       },
       {
@@ -40,7 +39,11 @@ function HomeScreen(props) {
     );
   }
   
-  const loadItems = (day) => {
+  const loadItems = () => {
+    loadAndSet(calender_events);
+  };
+
+  const loadAndSet = (calender_events) => {
     const newItems = {}
     calender_events.forEach((event) => {
     if (!newItems[event.date]) {
@@ -49,7 +52,7 @@ function HomeScreen(props) {
       newItems[event.date].push(event);
     });
     setItems(newItems);
-  };
+  }
 
   const renderItem = (item) => {
     return (
@@ -62,8 +65,8 @@ function HomeScreen(props) {
                 justifyContent: 'space-between',
                 alignItems: 'center',
               }}>
-              <Text>{item.time}</Text>
-              <Text style={{ flexShrink: 1}}>{item.task}</Text>
+              <Text style= {item.completed ? styles.text_completed: styles.text_not_completed}>{item.time}</Text>
+              <Text style= {item.completed ? styles.text_completed: styles.text_not_completed}>{item.task}</Text>
               <Avatar.Text label= {item.task_label == "C" ? "C" : "P"} />
             </View>
           </Card.Content>
@@ -77,7 +80,7 @@ function HomeScreen(props) {
       <Agenda
         items={items}
         loadItemsForMonth={loadItems}
-        selected={timeToString(Date.now())}
+        selected={new Date()}
         renderItem={renderItem}
         renderEmptyData={() => {
          return <View />;
@@ -87,5 +90,16 @@ function HomeScreen(props) {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  text_completed: {
+    flexShrink: 1,
+    textDecorationLine: 'line-through',
+    color: 'red'
+  },
+  text_not_completed: {
+    flexShrink: 1
+  }
+});
 
 export default HomeScreen;

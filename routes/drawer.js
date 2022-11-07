@@ -1,15 +1,18 @@
-import * as React from 'react';
+import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from '../pages/home';
 import LaunchStack from './launchStack';
 import ParentStack from './parentStack';
- import ChildrenStack from './childrenStack';
+import ChildrenStack from './childrenStack';
+import CustomDrawer from '../components/CustomDrawer';
+import RewardScreen from '../pages/rewards';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
 function Drawer() {
   return (
     <Navigator
+      drawerContent={props => <CustomDrawer {...props} />}
       initialRouteName='Sign Out'
        screenOptions={{
          unmountOnBlur: true
@@ -17,7 +20,7 @@ function Drawer() {
       <Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Home'}}
+        options={{title: 'Home' }}
       />
       <Screen
         name="Children"
@@ -28,6 +31,11 @@ function Drawer() {
         name="Parent"
         component={ParentStack}
         options={{title: 'Parent' }}
+      />
+      <Screen
+        name="Rewards"
+        component={RewardScreen}
+        options={{ title: 'Rewards' }}
       />
       <Screen
         name="Sign Out"

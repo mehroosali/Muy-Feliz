@@ -13,6 +13,19 @@ function LoginScreen(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+    const handleOnPress = () => {
+    if (!validFields()) {
+      Alert.alert('Error Login in!', 'Please check the fields and try again!');
+    } else {
+      
+      props.navigation.navigate('Home');
+    }
+  }
+
+  const validFields = () => {
+    return true;
+  }
  
   return (
     <View style={styles.container}>
@@ -36,11 +49,11 @@ function LoginScreen(props) {
         />
       </View>
  
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
+      <TouchableOpacity onPress = {() => props.navigation.navigate('Signup')}>
+        <Text style={styles.forgot_button}>SIGN UP</Text>
       </TouchableOpacity>
  
-      <TouchableOpacity style={styles.loginBtn}  onPress={() => props.navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.loginBtn}  onPress={() => handleOnPress()}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
