@@ -3,22 +3,12 @@ import {
   View,
   Text,
   ImageBackground,
-  Image,
-  TouchableOpacity,
+  Image
 } from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-
-const imageNames = {
-  chess: require('../assets/images/chess.jpg'),
-  football: require('../assets/images/football.jpeg'),
-  painting: require('../assets/images/painting.jpg'),
-  cooking: require('../assets/images/cooking.jpg'),
-  gaming: require('../assets/images/gaming.jpg')
-};
-  
 
 const CustomDrawer = props => {
   return (

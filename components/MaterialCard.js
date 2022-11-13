@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
-  const handleOnPress = (props) => {
-    props.navigation.navigate('Event', {events:props.hobby.events});
+const handleOnPress = (props) => {
+  if (props.childScreen) {
+      props.navigation.navigate('ChildrenEvent', {name:props.children.name});
+  } else {
+    props.navigation.navigate('Events', {events:props.hobby.events});
+    }
   }
 
-  const imageNames = {
+  const HobbyImageNames = {
   chess: require('../assets/images/chess.jpg'),
   football: require('../assets/images/football.jpeg'),
   painting: require('../assets/images/painting.jpg'),
@@ -13,16 +17,23 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
   gaming: require('../assets/images/gaming.jpg')
   };
 
+  const ChildrenImageNames = {
+  ezikiel: require('../assets/images/ezikiel.jpeg'),
+  zack: require('../assets/images/zack.jpg'),
+  other: require('../assets/images/other.jpg')
+  };
+
 function MaterialCard(props) {
   return (
     <View style={[styles.container, props.style]}>
       <View style={styles.cardBody}>
         <View style={styles.bodyContent}>
-          <Text style={styles.titleStyle}>{props.hobby.name}</Text>
-          <Text style={styles.subtitleStyle}>{props.hobby.category}</Text>
+          <Text style={styles.titleStyle}>{props.childScreen ? props.children.name : props.hobby.name}</Text>
+          <Text style={styles.subtitleStyle}>{props.childScreen ? props.children.age : props.hobby.category}</Text>
+          <Text style={styles.subtitleStyle}>{props.childScreen ? props.children.gender : " "}</Text>
         </View>
         <Image
-          source={imageNames[props.hobby.image]}
+          source={props.children ? ChildrenImageNames[props.children.image] : HobbyImageNames[props.hobby.image]}
           style={styles.cardItemImagePlace}
         ></Image>
       </View>
@@ -30,6 +41,11 @@ function MaterialCard(props) {
         <TouchableOpacity style={styles.actionButton1} onPress = {() => handleOnPress(props)}>
           <Text style={styles.actionText1}>SELECT</Text>
         </TouchableOpacity>
+        {!props.children && (
+          <TouchableOpacity style={styles.actionButton1} onPress = {() => props.onRemoveHobby(props.hobby)}>
+          <Text style={styles.actionText1}>REMOVE</Text>
+        </TouchableOpacity>
+        )}
       </View>
     </View>
   );

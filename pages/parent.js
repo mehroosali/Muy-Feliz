@@ -1,11 +1,34 @@
-import * as React from 'react';
-import { View, Text, StyleSheet, ScrollView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-import MaterialCard from  '../components/MaterialCard'
+import MaterialCard from '../components/MaterialCard';
+import AddHobby from '../components/AddHobby';
+import { useDispatch } from 'react-redux';
+import { add_hobby, remove_hobby } from '../redux/actions';
+import { Store } from '../redux/store';
 
 function ParentScreen(props) {
-  const { hobbies } = useSelector(state => state.hobbyReducer);
+  const [hobbies, setHobbies] = useState([])
+
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+  const dispatch = useDispatch();
+
+   function endHobbyHandler() {
+    setModalIsVisible(false);
+  }
+
+  function addHobbyHandler(newHobby) {
+    dispatch(add_hobby(newHobby));
+    const hobby = [...hobbies, newHobby]
+    setHobbies(hobby);
+    endHobbyHandler();
+  }
+
+    function removeHobbyHandler(hobby) {
+    dispatch(remove_hobby(hobby));
+    const hobby_updated = hobbies.filter(h => h !== hobby)
+    setHobbies(hobby_updated);
+  }
 
   useFocusEffect(
         React.useCallback(() => {
@@ -14,40 +37,39 @@ function ParentScreen(props) {
             props.navigation.getParent().setOptions({ headerShown: false})
         };
         }, [])
-    )
+  )
+  
+    useEffect(() => {
+    setHobbies(Store.getState().hobbyReducer.hobbies);
+}, []);
   
   return (
     <View style={styles.container}>
-      <Text style={styles.selectAHobby}>Hobbies</Text>
+      <Text style={styles.selectAHobby}>My Hobbies</Text>
+      <TouchableOpacity
+        style={styles.button}
+      onPress={() => setModalIsVisible(true)}
+      >
+       <Text style={styles.buttonText}>Add Hobby</Text>
+      </TouchableOpacity>
+      <AddHobby
+        visible={modalIsVisible}
+        onAddHobby={(newHobby) => addHobbyHandler(newHobby)}
+        onCancel={endHobbyHandler}
+      />
       <View style={styles.scrollArea}>
         <ScrollView
           contentContainerStyle={styles.scrollArea_contentContainerStyle}
         >
-          <MaterialCard
+          {hobbies && hobbies.map((hobby) => (
+            <MaterialCard
+            key = {hobby.id}
+            childScreen={false}
             style={styles.materialCardWithImageAndTitle}
             navigation={props.navigation}
-            hobby = {hobbies[0]}
-          ></MaterialCard>
-          <MaterialCard
-            style={styles.materialCardWithImageAndTitle}
-            navigation={props.navigation}
-            hobby = {hobbies[1]}
-          ></MaterialCard>
-          <MaterialCard
-            style={styles.materialCardWithImageAndTitle}
-            navigation={props.navigation}
-            hobby = {hobbies[2]}
-          ></MaterialCard>
-          <MaterialCard
-            style={styles.materialCardWithImageAndTitle}
-            navigation={props.navigation}
-            hobby = {hobbies[3]}
-          ></MaterialCard>
-          <MaterialCard
-            style={styles.materialCardWithImageAndTitle}
-            navigation={props.navigation}
-            hobby = {hobbies[4]}
-          ></MaterialCard>
+            hobby={hobby}
+            onRemoveHobby={(hobby) => removeHobbyHandler(hobby)}
+          ></MaterialCard>))}
         </ScrollView>
       </View>
     </View>
@@ -57,6 +79,14 @@ function ParentScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  button: {
+    marginTop: 10,
+    marginLeft: 150,
+    width:100
+  },
+    buttonText: {
+      color:'blue'
   },
   scrollArea: {
     width: 350,

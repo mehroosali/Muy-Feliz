@@ -3,7 +3,8 @@ import { View, FlatList, StyleSheet, Alert } from 'react-native';
 import {Card, Button , Title ,Paragraph } from 'react-native-paper';
 import { useFocusEffect } from '@react-navigation/native';
 import { useSelector, useDispatch } from 'react-redux';
-import { add_event } from '../redux/actions'
+import { add_event } from '../redux/actions';
+import urid from 'urid';
 
 const monthMap = {
     'JAN': 1,
@@ -26,15 +27,17 @@ function EventScreen(props) {
     const dispatch = useDispatch();
 
     const handleOnPress = (item) => {
-        const event = {};
-        event['task'] = item.title;
-        event['task_label'] = 'P';
-        const date_tokens = item.date.split(" ");
-        event['time'] = date_tokens[4].concat(" ", date_tokens[5]);
-        event['date'] = "2022".concat("-", monthMap[date_tokens[1]], "-", date_tokens[2]);
+      const event = {};
+      event['id'] = urid();
+      event['task'] = item.title;
+      event['task_label'] = 'P';
+      event['completed'] = false;
+      const date_tokens = item.date.split(" ");
+      event['time'] = date_tokens[4].concat(" ", date_tokens[5]);
+      event['date'] = "2022".concat("-", monthMap[date_tokens[1]], "-", date_tokens[2]);
       if (!validateEvent(event.date, event.time)) {
         dispatch(add_event(event));
-        props.navigation.getParent().navigate('Home');
+        Alert.alert('Task added to Calender', 'Check home screen calender.');
         } else {
         Alert.alert('Schedule Conflict!!', 'Please choose another event or complete tasks at chosen time.');
         }

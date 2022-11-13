@@ -19,17 +19,10 @@ function SignupScreen(props) {
   const dispatch = useDispatch();
 
   const handleOnPress = () => {
-    if (!validFields()) {
-      Alert.alert('Error Signing up!', 'Please check the fields and try again!');
-    } else {
+      Alert.alert('Sign Up functionality not available!', 'This App currently supports user mehroosali@gmail.com only. Login with those credentials.');
       props.navigation.navigate('Login');
     }
-  }
-
-  const validFields = () => {
-    return true;
-  }
-
+  
   return (
     <View style={styles.container}>
         <View style={styles.inputView}>
@@ -87,8 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    marginTop: 20
+    alignItems: "center"
   },
  
   image: {
@@ -102,13 +94,14 @@ const styles = StyleSheet.create({
     height: 45,
     marginBottom: 20,
     alignItems: "center",
+    marginTop: 10
   },
  
   TextInput: {
     height: 50,
     flex: 1,
     padding: 10,
-    marginLeft: 20,
+    marginLeft: 20
   },
  
   forgot_button: {

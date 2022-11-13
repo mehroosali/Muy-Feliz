@@ -1,8 +1,7 @@
 import {
-    DELETE_EVENT, ADD_EVENT, COMPLETE_EVENT,
-    REGISTER_USER, SET_CURRENT_USER, INCREMENT_REWARDS_COUNT
+    DELETE_EVENT, ADD_EVENT, COMPLETE_EVENT, INCREMENT_REWARD_POINTS, DECREMENT_REWARD_COUNT, ADD_CHILD, ADD_HOBBY, REMOVE_HOBBY
 } from '../redux/actions'
-import { INITIAL_STATE } from './state'
+import { INITIAL_STATE } from './state';
 
 const initialState = INITIAL_STATE;
 
@@ -35,23 +34,16 @@ export function calenderReducer(state = initialState, action) {
 
 export function hobbyReducer(state = initialState, action) {
     switch (action.type) {
-        default:
-            return state;
-    }
-}
-
-export function userReducer(state = initialState, action) {
-    switch (action.type) {
-        case SET_CURRENT_USER:
+        case ADD_HOBBY:
             return {
                 ...state,
-                current_user: action.payload
-            }
-        case REGISTER_USER:
+                hobbies: [...state.hobbies, action.payload]
+            }   
+        case REMOVE_HOBBY:
             return {
                 ...state,
-                users: [...state.users, action.payload]
-            }
+                hobbies: state.hobbies.filter(item => item !== action.payload)
+            }         
         default:
             return state;
     }
@@ -59,10 +51,27 @@ export function userReducer(state = initialState, action) {
 
 export function rewardsReducer(state = initialState, action) {
     switch (action.type) {
-        case INCREMENT_REWARDS_COUNT:
+        case INCREMENT_REWARD_POINTS:
             return {
                 ...state,
-                rewards_count: action.payload
+                reward_stats: {...state.reward_stats, reward_points: action.payload }
+            }
+        case DECREMENT_REWARD_COUNT:
+            return {
+                ...state,
+                reward_stats: {...state.reward_stats, reward_counter: action.payload }
+            }        
+        default:
+            return state;
+    }
+}
+
+export function childrenReducer(state = initialState, action) {
+    switch (action.type) {
+        case ADD_CHILD:
+            return {
+                ...state,
+                children: [...state.children, action.payload]
             }
         default:
             return state;

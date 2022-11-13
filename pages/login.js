@@ -5,7 +5,7 @@ import {
   View,
   Image,
   TextInput,
-  Button,
+  Alert,
   TouchableOpacity,
 } from "react-native";
 
@@ -15,16 +15,18 @@ function LoginScreen(props) {
   const [password, setPassword] = useState("");
 
     const handleOnPress = () => {
-    if (!validFields()) {
-      Alert.alert('Error Login in!', 'Please check the fields and try again!');
-    } else {
-      
+     if (!validFields()) {
+      Alert.alert('Error Login in!', 'Please check the email and password to try again!');
+     } else {
       props.navigation.navigate('Home');
     }
   }
 
   const validFields = () => {
-    return true;
+    // if (email == 'mehroosali@gmail.com' && password == 'testuser')
+      return true;
+    
+    //return false;
   }
  
   return (

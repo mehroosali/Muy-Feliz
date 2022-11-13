@@ -30,7 +30,7 @@ function Drawer() {
       <Screen
         name="Parent"
         component={ParentStack}
-        options={{title: 'Parent' }}
+        options={{title: 'Hobbies' }}
       />
       <Screen
         name="Rewards"

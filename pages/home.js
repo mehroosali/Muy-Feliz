@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 import {View, TouchableOpacity, Text, Alert, StyleSheet } from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import { Card, Avatar } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
-import { delete_event, complete_event, increment_rewards_count } from '../redux/actions';
+import { delete_event, complete_event, increment_reward_points, decrement_reward_count } from '../redux/actions';
 import { Store } from '../redux/store';
 
 function HomeScreen(props) {
   const [items, setItems] = useState({});
   const { calender_events } = useSelector(state => state.calenderReducer);
-  const { rewards_count, rewards } = useSelector(state => state.rewardsReducer);
+  const { reward_points, reward_counter } = useSelector(state => state.rewardsReducer.reward_stats);
   const dispatch = useDispatch();
   
   const handleOnPress = (item) => {
@@ -18,8 +18,7 @@ function HomeScreen(props) {
         text: "Complete",
       onPress: () => {
         dispatch(complete_event(item.id));
-        dispatch(increment_rewards_count(rewards_count + 1));
-        Alert.alert('Rewards Unlocked', 'Check rewards page for more details.');
+        handleRewards()
         loadAndSet(Store.getState().calenderReducer.calender_events);
         },
       },
@@ -39,6 +38,15 @@ function HomeScreen(props) {
     );
   }
   
+  const handleRewards = () => {
+    dispatch(increment_reward_points(reward_points + 10));
+    Alert.alert('Reward points claimed', 'Complete ' + reward_counter + ' more tasks to claim rewards.'); 
+    dispatch(decrement_reward_count(reward_counter - 1));
+    const updated_rewards_count = Store.getState().rewardsReducer.reward_stats.reward_counter;
+    if (updated_rewards_count == 0) {
+     dispatch(decrement_reward_count(5)); 
+    }
+  }
   const loadItems = () => {
     loadAndSet(calender_events);
   };
@@ -67,7 +75,9 @@ function HomeScreen(props) {
               }}>
               <Text style= {item.completed ? styles.text_completed: styles.text_not_completed}>{item.time}</Text>
               <Text style= {item.completed ? styles.text_completed: styles.text_not_completed}>{item.task}</Text>
-              <Avatar.Text label= {item.task_label == "C" ? "C" : "P"} />
+              <Avatar.Text
+                style={item.task_label == "C" ? styles.children : styles.parent}
+                label={item.task_label == "C" ? "C" : "P"} />
             </View>
           </Card.Content>
         </Card>
@@ -99,6 +109,12 @@ const styles = StyleSheet.create({
   },
   text_not_completed: {
     flexShrink: 1
+  },
+  parent: {
+   backgroundColor: "blue" 
+  },
+  children: {
+   backgroundColor: "red" 
   }
 });
 

@@ -1,7 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ParentScreen from '../pages/parent';
-import RewardScreen from '../pages/rewards';
 import EventScreen from '../pages/events';
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -15,12 +14,8 @@ function ParentStack() {
         options={{ headerShown: false }}
       />
         <Screen
-        name="Event"
+        name="Events"
         component={EventScreen}
-        />
-        <Screen
-        name="Rewards"
-        component={RewardScreen}
         />
     </Navigator>
   );

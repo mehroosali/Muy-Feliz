@@ -1,19 +1,20 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-function LoginButton(props) {
+function MaterialButtonPink(props) {
   return (
-    <TouchableOpacity style={[styles.container, props.style]}
-    onPress = {() => props.navigation.navigate('Login')}
-    >
-      <Text style={styles.login}>LOGIN</Text>
+    <TouchableOpacity
+      style={[styles.container, props.style]}
+      onPress = {props.onCancel}>
+        
+      <Text style={styles.caption}>CANCEL</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "#E91E63",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
@@ -30,11 +31,10 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16
   },
-  login: {
-    color: "rgba(8,32,238,1)",
-    fontSize: 14,
-    fontFamily: "roboto-700"
+  caption: {
+    color: "#fff",
+    fontSize: 14
   }
 });
 
-export default LoginButton;
+export default MaterialButtonPink;
