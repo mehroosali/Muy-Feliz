@@ -23,7 +23,9 @@ function LaunchScreen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgba(144,19,254,1)"
+    backgroundColor: "rgba(144,19,254,1)",
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   muyFeliz: {
     fontFamily: "roboto-700",
@@ -35,8 +37,7 @@ const styles = StyleSheet.create({
   loginButton: {
     height: 36,
     width: 128,
-    marginTop: 200,
-    marginLeft: 121
+    marginTop: 200
   },
   loremIpsum: {
     fontFamily: "roboto-regular",
@@ -46,8 +47,7 @@ const styles = StyleSheet.create({
   signupButton: {
     height: 36,
     width: 128,
-    marginTop: 20,
-    marginLeft: 121
+    marginTop: 20
   }
 });
 

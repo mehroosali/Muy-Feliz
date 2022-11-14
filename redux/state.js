@@ -2,7 +2,7 @@ export const INITIAL_STATE = {
     calender_events: [
         {
             id:1,
-            date: '2022-11-12',
+            date: '2022-11-17',
             task: 'Feed the baby',
             time: '5:30 AM',
             task_label: 'C',
@@ -10,35 +10,11 @@ export const INITIAL_STATE = {
         },
         {
             id:2,
-            date: '2022-11-12',
+            date: '2022-11-17',
             task: 'Workout',
             time: '6:30 PM',
             task_label: 'P',
             completed:false
-        },
-        {
-            id:3,
-            date: '2022-11-17',
-            task: 'Baby Wakeup',
-            time: '5:30 AM',
-            task_label: 'C',
-            completed: false
-        },
-        {
-            id:4,
-            date: '2022-11-17',
-            task: 'Doctor Appointment',
-            time: '6:00 PM',
-            task_label: 'C',
-            completed: false
-        },
-        {
-            id:5,
-            date: '2022-11-18',
-            task: 'Hiking',
-            time: '7:30 AM',
-            task_label: 'P',
-            completed: false
         }
     ],
     hobbies: [{
@@ -84,7 +60,7 @@ export const INITIAL_STATE = {
         {
             id:2,
             name: 'Zack',
-            age: '1 year 6 months',
+            age: '1 year 2 months',
             gender: 'Male',
             image: 'zack'
         }

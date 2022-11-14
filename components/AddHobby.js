@@ -10,10 +10,10 @@ function AddHobby(props) {
     const [value, setValue] = useState(null);
     const [items, setItems] = useState([
     {label: 'Chess', value: 'Chess'},
-    { label: 'Football', value: 'Football' },
-    { label: 'Painting', value: 'Painting' },
-    { label: 'Cooking', value: 'Cooking' },
-    {label: 'Gaming', value: 'Gaming'}
+    {label: 'Football', value: 'Football'},
+    {label: 'Painting', value: 'Painting'},
+    {label: 'Gaming', value: 'Gaming'},
+    {label: 'Cooking', value: 'Cooking'}
     ]);
     
     const handleOnPress = () => {

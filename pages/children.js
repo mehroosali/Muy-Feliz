@@ -72,11 +72,12 @@ function ChildrenScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   button: {
     marginTop: 10,
-    marginLeft: 150,
     width:100
   },
     buttonText: {
@@ -84,10 +85,9 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     width: 350,
-    height: 600,
+    height: 500,
     backgroundColor: "#ffffff",
-    marginTop: 25,
-    marginLeft: 18
+    marginTop: 25
   },
   scrollArea_contentContainerStyle: {
     height: 1000,
@@ -100,10 +100,10 @@ const styles = StyleSheet.create({
     marginLeft: 23
   },
   selectAHobby: {
-    fontFamily: "fjalla-one-regular",
+    fontFamily: "andada-pro-700",
     textAlign: 'center', 
-    color: "#121212",
-    fontSize: 30,
+    color: "rgba(0,0,0,1)",
+    fontSize: 25,
     marginTop: 10
   }
 });

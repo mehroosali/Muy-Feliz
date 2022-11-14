@@ -1,6 +1,6 @@
-## Muy-Feliz
+## Instructions
 
-### Softwares
+### Install the following tools
 
 [Git](https://git-scm.com/downloads) <br>
 [NodeJS](https://nodejs.org/en/)<br>
@@ -16,14 +16,6 @@ Open any terminal/command line and type:
 <li> git clone https://github.com/mehroosali/Muy-Feliz.git </li>
 <li> cd Muy-Feliz </li>
 <li> npm i </li>
-<li> git checkout som </li>
-</ul>
-For committing changes, <br>
-<ul>
-<li> git pull Muy-Feliz main </li>
-<li> git add . </li>
-<li> git commit -m "commit message" </li>
-<li> git push -u Muy-Feliz som <br>
 </ul>
 
 ### Setting up VS Code 
@@ -41,24 +33,13 @@ Some common ones are https://blog.bitsrc.io/vs-code-extensions-you-should-use-as
 <li> After the react-native application starts press 'a' on the keyboard and the application should show on the emulator. </li>
 </ol>
 
-### Setting up personal Android phone (Optional)
+### Setting up personal Android phone 
 If for some reason Android Studio does not work, you can run react native emulator on your personal android/ios phone for live emulation using the app [Expo Go](https://expo.dev/client).
-
-### Setting up build and deployment (Optional)
-This setup is done in my laptop using Expo CLI and EAS to build final APK file for testing in any android phone. You only need to worry about successfully running and testing your changes in Android Studio and merging the working code in this repository. I will take of creating the final App to be installed in our phones for demo. 
-
+ 
 ### Files and Folder Structure
 App.js - main entry file with global app navigation setup. <br>
-pages - contains files for each screen which we will design. <br>
-components - Reusable react native components which we will design or copy from internet.<br>
-assets/images - any image which we will use.
-### References
-https://reactnative.dev/docs/components-and-apis <br>
-https://builderx.io/ <br>
-https://docs.expo.dev/build/eas-json/ <br>
-https://docs.expo.dev/build-reference/apk/ <br>
-https://expo.dev/ <br>
-https://www.waldo.com/blog/react-native-project-structure <br>
-https://github.com/wix/react-native-calendars <br>
-https://github.com/wix/react-native-calendars/blob/master/example/src/screens/agendaScreen.tsx <br>
-https://gist.github.com/jonasgroendahl/f5e938cdf0a77c2e1509ded22630ba7d <br>
+pages - contains js files for each screen. <br>
+components - contains reusable react native components.<br>
+assets - contains image and fonts which  were used in the code.<br>
+routes - drawer and stack navigation configuration files.<br>
+redux - redux configuration files for state management.<br>

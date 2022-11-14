@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, Alert } from "react-native";
 
 function SignUpButton(props) {
   return (
       <TouchableOpacity style={[styles.container, props.style]}
-      onPress = {() => props.navigation.navigate('Signup')} >
+      //onPress = {() => props.navigation.navigate('Signup')} >
+        onPress = {() => Alert.alert('Sign Up functionality not available!', 'This App currently supports user mehroosali@gmail.com only. Login with those credentials.')} >
       <Text style={styles.signup}>SIGNUP</Text>
     </TouchableOpacity>
   );

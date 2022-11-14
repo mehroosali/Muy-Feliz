@@ -78,11 +78,12 @@ function ParentScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   button: {
     marginTop: 10,
-    marginLeft: 150,
     width:100
   },
     buttonText: {
@@ -90,10 +91,9 @@ const styles = StyleSheet.create({
   },
   scrollArea: {
     width: 350,
-    height: 600,
+    height: 500,
     backgroundColor: "#ffffff",
-    marginTop: 25,
-    marginLeft: 18
+    marginTop: 25
   },
   scrollArea_contentContainerStyle: {
     height: 1000,

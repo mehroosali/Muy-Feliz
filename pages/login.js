@@ -23,10 +23,10 @@ function LoginScreen(props) {
   }
 
   const validFields = () => {
-    // if (email == 'mehroosali@gmail.com' && password == 'testuser')
+    if (email == 'mehroosali@gmail.com' && password == 'testuser')
       return true;
     
-    //return false;
+    return false;
   }
  
   return (
@@ -51,9 +51,9 @@ function LoginScreen(props) {
         />
       </View>
  
-      <TouchableOpacity onPress = {() => props.navigation.navigate('Signup')}>
+      {/* <TouchableOpacity onPress = {() => props.navigation.navigate('Signup')}>
         <Text style={styles.forgot_button}>SIGN UP</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
  
       <TouchableOpacity style={styles.loginBtn}  onPress={() => handleOnPress()}>
         <Text style={styles.loginText}>LOGIN</Text>

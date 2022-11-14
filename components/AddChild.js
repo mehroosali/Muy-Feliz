@@ -13,17 +13,17 @@ function AddChild(props) {
     <Modal visible={props.visible} animationType="slide">
     <View style={styles.container}>
                 <MaterialFixedLabelTextbox
-                    label='Name'
+                    label='Name:'
                     setValue = {(name) => setName(name)}
         style={styles.materialFixedLabelTextbox}
       ></MaterialFixedLabelTextbox>
                 <MaterialFixedLabelTextbox
-                    label='Age'
+                    label='Age:'
                     setValue = {(age) => setAge(age)}
         style={styles.materialFixedLabelTextbox1}
       ></MaterialFixedLabelTextbox>
                 <MaterialFixedLabelTextbox
-                    label='Gender'
+                    label='Gender:'
                     setValue = {(gender) => setGender(gender)}
         style={styles.materialFixedLabelTextbox2}
       ></MaterialFixedLabelTextbox>
@@ -47,25 +47,24 @@ function AddChild(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   materialFixedLabelTextbox: {
     height: 43,
     width: 266,
     marginTop: 116,
-    marginLeft: 33
   },
   materialFixedLabelTextbox1: {
     height: 43,
     width: 266,
-    marginTop: 24,
-    marginLeft: 33
+    marginTop: 24
   },
   materialFixedLabelTextbox2: {
     height: 43,
     width: 266,
-    marginTop: 26,
-    marginLeft: 33
+    marginTop: 26
   },
   materialButtonPrimary1: {
     height: 36,
@@ -74,14 +73,12 @@ const styles = StyleSheet.create({
   materialButtonPink: {
     height: 36,
     width: 100,
-    marginLeft: 17
+    marginLeft: 20
   },
   materialButtonPrimary1Row: {
     height: 36,
     flexDirection: "row",
-    marginTop: 54,
-    marginLeft: 71,
-    marginRight: 87
+    marginTop: 54
   }
 });
 

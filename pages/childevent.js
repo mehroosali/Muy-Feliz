@@ -88,21 +88,21 @@ function ChildEventScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   image: {
     width: 235,
     height: 270,
     backgroundColor: "rgba(255,255,255,1)",
-    marginTop: 50,
-    marginLeft: 77
+    marginTop: 50
   },
   rect: {
     width: 235,
     height: 270,
     backgroundColor: "rgba(255,255,255,1)",
-    marginTop: 20,
-    marginLeft: 77
+    marginTop: 20
   },
   loremIpsum: {
     fontFamily: "roboto-700",

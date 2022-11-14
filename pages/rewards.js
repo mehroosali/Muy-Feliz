@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSelector } from 'react-redux';
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import FlipCard from '@rbl93/react-native-flip-card';
@@ -13,6 +13,10 @@ const rewards = [
 function RewardScreen(props) {
 const { reward_points, reward_counter } = useSelector(state => state.rewardsReducer.reward_stats);
 
+    useEffect(() => {
+      console.log('here');
+    }, []);
+  
   return (
     <View style={styles.container}>
       <Text style={styles.points}>Points: {reward_points}</Text>
@@ -35,21 +39,18 @@ const { reward_points, reward_counter } = useSelector(state => state.rewardsRedu
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   card: {
    marginTop:10 
-  },
-  viewStyles: {
-    alignItems: 'center'
   },
   rect: {
     width: 250,
     height: 130,
     backgroundColor: "#E6E6E6",
-    marginTop: 30,
-    marginLeft: 65,
-    alignItems: 'center'
+    marginTop: 30
   },
   text: {
     fontFamily: "roboto-regular",
