@@ -6,8 +6,9 @@ function MaterialFixedLabelTextbox(props) {
     <View style={[styles.container, props.style]}>
       <Text style={styles.label}>{props.label}</Text>
       <TextInput
+        placeholder="Enter First Name"
         style={styles.inputStyle}
-      onChangeText={(value) => props.setValue(value)}
+        onChangeText={(value) => props.setValue(value)}
       />
     </View>
   );
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     borderColor: "#D9D5DC",
     backgroundColor: "transparent",
     flexDirection: "row",
-    paddingLeft: 16
+    paddingLeft: 16,
   },
   label: {
     fontSize: 16,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     color: "#000",
     opacity: 0.5,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   inputStyle: {
     color: "#000",
@@ -39,8 +40,8 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     paddingTop: 14,
     paddingBottom: 8,
-    paddingLeft: 30
-  }
+    paddingLeft: 30,
+  },
 });
 
 export default MaterialFixedLabelTextbox;

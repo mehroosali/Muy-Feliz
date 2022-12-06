@@ -5,8 +5,8 @@ function MaterialButtonPink(props) {
   return (
     <TouchableOpacity
       style={[styles.container, props.style]}
-      onPress = {props.onCancel}>
-        
+      onPress={props.onCancel}
+    >
       <Text style={styles.caption}>CANCEL</Text>
     </TouchableOpacity>
   );
@@ -22,19 +22,19 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1
+      height: 1,
     },
     shadowOpacity: 0.35,
     shadowRadius: 5,
     elevation: 2,
     minWidth: 88,
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
   },
   caption: {
     color: "#fff",
-    fontSize: 14
-  }
+    fontSize: 14,
+  },
 });
 
 export default MaterialButtonPink;

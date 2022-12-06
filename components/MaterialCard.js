@@ -3,49 +3,56 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
 const handleOnPress = (props) => {
   if (props.childScreen) {
-      props.navigation.navigate('ChildrenEvent', {name:props.children.name});
+    props.navigation.navigate("ChildrenEvent", { name: props.children.name });
   } else {
-    props.navigation.navigate('Events', {events:props.hobby.events});
-    }
+    props.navigation.navigate("Events", {
+      events: props.hobby.events,
+      increment_hobby_counter: props.incrementHobbyCounter,
+    });
   }
-
-  const HobbyImageNames = {
-  chess: require('../assets/images/chess.jpg'),
-  football: require('../assets/images/football.jpeg'),
-  painting: require('../assets/images/painting.jpg'),
-  cooking: require('../assets/images/cooking.jpg'),
-  gaming: require('../assets/images/gaming.jpg')
-  };
-
-  const ChildrenImageNames = {
-  ezikiel: require('../assets/images/ezikiel.jpeg'),
-  zack: require('../assets/images/zack.jpg'),
-  other: require('../assets/images/other.jpg')
-  };
+};
 
 function MaterialCard(props) {
   return (
     <View style={[styles.container, props.style]}>
       <View style={styles.cardBody}>
         <View style={styles.bodyContent}>
-          <Text style={styles.titleStyle}>{props.childScreen ? props.children.name : props.hobby.name}</Text>
-          <Text style={styles.subtitleStyle}>{props.childScreen ? props.children.age : props.hobby.category}</Text>
-          <Text style={styles.subtitleStyle}>{props.childScreen ? props.children.gender : " "}</Text>
+          <Text style={styles.titleStyle}>
+            {props.childScreen ? props.children.name : props.hobby.name}
+          </Text>
+          <Text style={styles.subtitleStyle}>
+            {props.childScreen ? props.children.dob : props.hobby.category}
+          </Text>
+          <Text style={styles.subtitleStyle}>
+            {props.childScreen
+              ? props.children.gender
+              : props.hobby.events_attending + " events attending"}
+          </Text>
         </View>
         <Image
-          source={props.children ? ChildrenImageNames[props.children.image] : HobbyImageNames[props.hobby.image]}
+          source={{
+            uri: props.children ? props.children.image : props.hobby.image,
+          }}
           style={styles.cardItemImagePlace}
         ></Image>
       </View>
       <View style={styles.actionBody}>
-        <TouchableOpacity style={styles.actionButton1} onPress = {() => handleOnPress(props)}>
+        <TouchableOpacity
+          style={styles.actionButton1}
+          onPress={() => handleOnPress(props)}
+        >
           <Text style={styles.actionText1}>SELECT</Text>
         </TouchableOpacity>
-        {!props.children && (
-          <TouchableOpacity style={styles.actionButton1} onPress = {() => props.onRemoveHobby(props.hobby)}>
+        <TouchableOpacity
+          style={styles.actionButton1}
+          onPress={
+            props.childScreen
+              ? () => props.onRemoveChild(props.children)
+              : () => props.onRemoveHobby(props.hobby)
+          }
+        >
           <Text style={styles.actionText1}>REMOVE</Text>
         </TouchableOpacity>
-        )}
       </View>
     </View>
   );
@@ -61,53 +68,52 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: -2,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.1,
     shadowRadius: 1.5,
     elevation: 3,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   cardBody: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   bodyContent: {
     padding: 16,
     paddingTop: 24,
-    flex: 1
+    flex: 1,
   },
   titleStyle: {
     fontSize: 24,
     color: "#000",
-    paddingBottom: 12
+    paddingBottom: 12,
   },
   subtitleStyle: {
     fontSize: 14,
     color: "#000",
-    lineHeight: 16,
-    opacity: 0.5
+    opacity: 0.5,
   },
   cardItemImagePlace: {
     backgroundColor: "#ccc",
     height: 100,
     width: 100,
-    margin: 16
+    margin: 16,
   },
   actionBody: {
-    padding: 8,
-    flexDirection: "row"
+    flexDirection: "row",
+    paddingBottom: 20,
   },
   actionButton1: {
-    padding: 3,
-    height: 36,
-    marginBottom: 5
+    height: 40,
+    paddingLeft: 10,
+    paddingBottom: 10,
   },
   actionText1: {
-    fontSize: 14,
-    color: "#000",
-    opacity: 0.9
-  }
+    fontSize: 20,
+    color: "blue",
+    opacity: 0.9,
+  },
 });
 
 export default MaterialCard;
