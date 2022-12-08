@@ -76,7 +76,7 @@ function MaterialButtonPrimary1(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "deeppink",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",

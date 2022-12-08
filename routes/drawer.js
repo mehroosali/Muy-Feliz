@@ -27,7 +27,7 @@ function Drawer(props) {
           title: "Children",
           headerRight: () => (
             <View style={{ marginLeft: 10 }}>
-              <Button title="Home" color="#00cc00" />
+              <Button title="Home" color="hotpink" />
             </View>
           ),
         })}
@@ -39,7 +39,7 @@ function Drawer(props) {
           title: "Hobbies",
           headerRight: () => (
             <View style={{ marginLeft: 10 }}>
-              <Button title="Home" color="#00cc00" />
+              <Button title="Home" color="hotpink" />
             </View>
           ),
         })}
@@ -50,7 +50,7 @@ function Drawer(props) {
         options={(props) => ({
           headerRight: () => (
             <View style={{ marginRight: 10 }}>
-              <Button title="Home" color="#00cc00" />
+              <Button title="Home" color="hotpink" />
             </View>
           ),
         })}

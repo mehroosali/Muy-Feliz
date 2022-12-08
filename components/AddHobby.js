@@ -33,9 +33,9 @@ function AddHobby(props) {
           setItems={setItems}
         />
         <View style={styles.button_container}>
-          <Button color="hotpink" title="Add" onPress={() => handleOnPress()} />
+          <Button color="deeppink" title="Add" onPress={() => handleOnPress()} />
           <Button
-            color="mediumslateblue"
+            color="deeppink"
             style={styles.button}
             title="Cancel"
             onPress={props.onCancel}

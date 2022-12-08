@@ -32,7 +32,7 @@ function ChildEventScreen(props) {
             <Button
               title="Home"
               onPress={() => props.navigation.getParent().navigate("Home")}
-              color="#00cc00"
+              color="hotpink"
             />
           </View>
         ),
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor:'white'
   },
   image: {
     width: 235,
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
   },
   loremIpsum: {
     fontFamily: "roboto-700",
-    color: "#121212",
+    color: "blue",
     fontSize: 15,
     marginTop: 32,
     marginLeft: 5,
@@ -194,33 +195,33 @@ const styles = StyleSheet.create({
     width: 178,
     lineHeight: 16,
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,1)",
+    borderColor: "blue",
     fontSize: 16,
     marginTop: 13,
   },
   button: {
     width: 131,
     height: 38,
-    backgroundColor: "teal",
+    backgroundColor: "deeppink",
     borderWidth: 1,
-    borderColor: "#000000",
+    borderColor: "blue",
     marginTop: 15,
   },
   button2: {
     width: 160,
     height: 38,
-    backgroundColor: "teal",
+    backgroundColor: "deeppink",
     borderWidth: 1,
-    borderColor: "#000000",
+    borderColor: "blue",
     marginTop: 20,
   },
-  addToCalender: {
+   addToCalender: {
     fontFamily: "roboto-regular",
     color: "white",
     marginTop: 10,
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 15
   },
   date_text: {
     fontSize: 15,

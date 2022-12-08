@@ -21,10 +21,10 @@ const CustomDrawer = (props) => {
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{ backgroundColor: "#8200d6" }}
+        contentContainerStyle={{ backgroundColor: "deeppink" }}
       >
         <ImageBackground
-          source={require("../assets/images/menu-bg.jpeg")}
+          source={{ uri: 'https://t4.ftcdn.net/jpg/03/03/90/07/360_F_303900759_u3iTdZu7Hw3sN52zNxkCn09W2oqAhczR.jpg' }}
           style={{ padding: 20 }}
         >
           <Image

@@ -126,6 +126,7 @@ function HomeScreen(props) {
                 {item.task}
               </Text>
               <Avatar.Text
+                color="white"
                 style={item.task_label == "C" ? styles.children : styles.parent}
                 label={item.task_label == "C" ? "C" : "P"}
               />
@@ -168,7 +169,7 @@ function HomeScreen(props) {
         showClosingKnob={true}
       />
       <View style={styles.FABcontainer}>
-        <FAB label="Help" style={styles.fab} onPress={() => handleBanner()} />
+        <FAB label="Help" color="white" style={styles.fab} onPress={() => handleBanner()} />
       </View>
     </View>
   );
@@ -182,16 +183,17 @@ const styles = StyleSheet.create({
   },
   text_not_completed: {
     flexShrink: 1,
+    color: "blue"
   },
   parent: {
-    backgroundColor: "blue",
+    backgroundColor: "#69B4FF",
   },
   children: {
-    backgroundColor: "red",
+    backgroundColor: "#B4FF69",
   },
   fab: {
     position: "absolute",
-    backgroundColor: "lime",
+    backgroundColor: "hotpink",
   },
   FABcontainer: {
     justifyContent: "center",

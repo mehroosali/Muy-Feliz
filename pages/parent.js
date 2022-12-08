@@ -92,7 +92,7 @@ function ParentScreen(props) {
             <Button
               title="Home"
               onPress={() => props.navigation.getParent().navigate("Home")}
-              color="#00cc00"
+              color="hotpink"
             />
           </View>
         ),
@@ -148,7 +148,7 @@ function ParentScreen(props) {
         </View>
       </View>
       <View style={styles.FABcontainer}>
-        <FAB label="Help" style={styles.fab} onPress={() => handleBanner()} />
+        <FAB label="Help" color="white" style={styles.fab} onPress={() => handleBanner()} />
       </View>
     </>
   );
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   button: {
     marginTop: 10,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
   scrollArea: {
     width: 350,
     height: 500,
-    backgroundColor: "#ffffff",
+    backgroundColor: "transparent",
     marginTop: 25,
   },
   scrollArea_contentContainerStyle: {
@@ -193,12 +193,12 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: "absolute",
-    backgroundColor: "lime",
+    backgroundColor: "hotpink",
   },
   FABcontainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 50
   },
 });
 

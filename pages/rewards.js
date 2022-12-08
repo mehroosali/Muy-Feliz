@@ -46,7 +46,7 @@ function RewardScreen(props) {
             <Button
               title="Home"
               onPress={() => props.navigation.navigate("Home")}
-              color="#00cc00"
+              color="hotpink"
             />
           </View>
         ),
@@ -94,7 +94,7 @@ function RewardScreen(props) {
         </ScrollView>
       </View>
       <View style={styles.FABcontainer}>
-        <FAB label="Help" style={styles.fab} onPress={() => handleBanner()} />
+        <FAB label="Help" color="white" style={styles.fab} onPress={() => handleBanner()} />
       </View>
     </>
   );
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   card: {
     marginTop: 10,
@@ -116,8 +116,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 250,
     height: 130,
-    backgroundColor: "chartreuse",
+    backgroundColor: "pink",
     marginTop: 30,
+    borderColor: 'hotpink',
+    borderWidth: 3
   },
   text: {
     fontFamily: "roboto-regular",
@@ -138,12 +140,13 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: "absolute",
-    backgroundColor: "lime",
+    backgroundColor: "hotpink",
+    
   },
   FABcontainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 50
   },
 });
 

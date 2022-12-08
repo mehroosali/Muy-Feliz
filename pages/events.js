@@ -93,7 +93,7 @@ function EventScreen(props) {
             <Button
               title="Home"
               onPress={() => props.navigation.getParent().navigate("Home")}
-              color="#00cc00"
+              color="hotpink"
             />
           </View>
         ),
@@ -132,7 +132,7 @@ function EventScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   card_container: {
     alignContent: "center",
