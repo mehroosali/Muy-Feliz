@@ -1,4 +1,9 @@
-## Instructions
+# Muy Feliz (Android Application)
+
+## Problem Statement and Overview
+Navigate to folder docs for a complete detailed implementation of this project.
+
+## Setup Instructions
 
 ### Install the following tools
 
@@ -43,3 +48,5 @@ components - contains reusable react native components.<br>
 assets - contains image and fonts which  were used in the code.<br>
 routes - drawer and stack navigation configuration files.<br>
 redux - redux configuration files for state management.<br>
+utils - helper dummy data.<br>
+docs - project docs.<br>
